@@ -9,6 +9,7 @@ public class FindSetBit {
     }
 
     /*
+        Using bitwise operation
         b=> total number of bits.
         Complexity O(b).
         Depends on word length
@@ -26,6 +27,7 @@ public class FindSetBit {
     }
 
     /*
+        By modulo
         b=> total number of bits.
         Complexity O(b).
         Depends on word length.
@@ -43,6 +45,7 @@ public class FindSetBit {
     }
 
     /*
+        By Toggling the last bit.
         b=> total number of bits set to one
         Complexity O(b)
         Depends on word length and number of bit set to one
