@@ -5,7 +5,7 @@ import java.util.Stack;
  */
 public class BalancedParanthesis {
     public static void main(String[] args) {
-        String s = "{()[]{[]}}";
+        String s = "}{()[]{[]}}{";
         method1(s);
     }
 
@@ -13,9 +13,11 @@ public class BalancedParanthesis {
         Using Stack
      */
     public static void method1(String s) {
+        boolean isContinue = true;
+        char[] stringToChar = s.toCharArray();
         Stack<Character> stack = new Stack<Character>();
-        for (char c : s.toCharArray()) {
-            switch (c) {
+        for (int i = 0; (i < s.length()) & isContinue; i++) {
+            switch (stringToChar[i]) {
                 case '(':
                     stack.push('(');
                     break;
@@ -26,19 +28,31 @@ public class BalancedParanthesis {
                     stack.push('{');
                     break;
                 case ')':
-                    stack.pop();
+                    if (stack.isEmpty()) {
+                        isContinue = false;
+                    } else {
+                        stack.pop();
+                    }
                     break;
                 case ']':
-                    stack.pop();
+                    if (stack.isEmpty()) {
+                        isContinue = false;
+                    } else {
+                        stack.pop();
+                    }
                     break;
                 case '}':
-                    stack.pop();
+                    if (stack.isEmpty()) {
+                        isContinue = false;
+                    } else {
+                        stack.pop();
+                    }
                     break;
                 default:
                     break;
             }
         }
-        if (stack.isEmpty())
+        if (stack.isEmpty() & isContinue)
             System.out.println("Balanced...");
         else
             System.out.println("Not Balanced...");
