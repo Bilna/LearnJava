@@ -5,7 +5,7 @@ import java.util.Stack;
  */
 public class BalancedParanthesis {
     public static void main(String[] args) {
-        String s = "}{()[]{[]}}{";
+        String s = "(({}{}))()";
         method1(s);
     }
 
