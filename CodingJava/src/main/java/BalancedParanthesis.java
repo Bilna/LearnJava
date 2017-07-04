@@ -5,7 +5,7 @@ import java.util.Stack;
  */
 public class BalancedParanthesis {
     public static void main(String[] args) {
-        String s = "(({}{}))()";
+        String s = "[(({}{]})())";
         method1(s);
     }
 
@@ -14,10 +14,12 @@ public class BalancedParanthesis {
      */
     public static void method1(String s) {
         boolean isContinue = true;
-        char[] stringToChar = s.toCharArray();
         Stack<Character> stack = new Stack<Character>();
+        if (s == null || s.length() == 0) {
+            System.out.println("Balanced...");
+        }
         for (int i = 0; (i < s.length()) & isContinue; i++) {
-            switch (stringToChar[i]) {
+            switch (s.charAt(i)) {
                 case '(':
                     stack.push('(');
                     break;
@@ -28,24 +30,24 @@ public class BalancedParanthesis {
                     stack.push('{');
                     break;
                 case ')':
-                    if (stack.isEmpty()) {
-                        isContinue = false;
-                    } else {
+                    if (!stack.isEmpty()&stack.peek()=='(') {
                         stack.pop();
+                    } else {
+                        isContinue = false;
                     }
                     break;
                 case ']':
-                    if (stack.isEmpty()) {
-                        isContinue = false;
-                    } else {
+                    if (!stack.isEmpty()&stack.peek()=='[') {
                         stack.pop();
+                    } else {
+                        isContinue = false;
                     }
                     break;
                 case '}':
-                    if (stack.isEmpty()) {
-                        isContinue = false;
-                    } else {
+                     if(!stack.isEmpty()&stack.peek()=='{'){
                         stack.pop();
+                    }else{
+                        isContinue=false;
                     }
                     break;
                 default:
