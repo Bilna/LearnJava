@@ -8,6 +8,12 @@ public class FindSetBit {
         method3(27);
     }
 
+    /*
+        b=> total number of bits.
+        Complexity O(b).
+        Depends on word length
+        if wordlength 16, complexity is O(16)
+    */
     public static void method1(long n) {
         int counter = 0;
         while (n > 0) {
@@ -19,6 +25,12 @@ public class FindSetBit {
         System.out.println(counter);
     }
 
+    /*
+        b=> total number of bits.
+        Complexity O(b).
+        Depends on word length.
+        if wordlength 16, complexity is O(16).
+    */
     public static void method2(long n) {
         int counter = 0;
         while (n > 0) {
@@ -30,6 +42,12 @@ public class FindSetBit {
         System.out.println(counter);
     }
 
+    /*
+        b=> total number of bits set to one
+        Complexity O(b)
+        Depends on word length and number of bit set to one
+        if wordlength 16, and out of 16 bits 7 are set to one then complexity is O(7)
+    */
     public static void method3(long n) {
         int counter = 0;
         while (n > 0) {
