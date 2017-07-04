@@ -4,6 +4,7 @@
 public class Palindrome {
     public static void main(String[] args) {
         System.out.println(isPalindrome("malaymyalam"));
+        System.out.println(isPalindrome(454));
     }
 
     public static boolean isPalindrome(String s) {
@@ -13,5 +14,18 @@ public class Palindrome {
             }
         }
         return true;
+    }
+
+    public static boolean isPalindrome(int n) {
+        int sum = 0, r = 0;
+        int temp = n;
+        while (n > 0) {
+            r = n % 10;
+            sum = sum * 10 + r;
+            n = n / 10;
+        }
+        if (temp == sum)
+            return true;
+        else return false;
     }
 }
